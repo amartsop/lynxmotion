@@ -43,16 +43,8 @@ void setup()
 
 void loop()
 {
-    /******************** Forward Kinematics ******************/
-
-    //Joystick
-    jointVec[robot.jointIndices.joint1] = 120;
-    jointVec[robot.jointIndices.gripper] = 153;
-    
-    // Forward Kinematics
-    robot.forwardKinematics(jointVec);
-
     /******************** Inverse Kinematics ******************/
+
     
 }
 
