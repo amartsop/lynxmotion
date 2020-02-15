@@ -51,6 +51,7 @@ void loop()
     
     // Forward Kinematics
     robot.forwardKinematics(jointVec);
+
 }
 
 
