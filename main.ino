@@ -52,7 +52,7 @@ void loop()
     // Forward Kinematics
     robot.forwardKinematics(jointVec);
 
-    /******************** Forward Kinematics ******************/
+    /******************** Inverse Kinematics ******************/
     
 }
 
