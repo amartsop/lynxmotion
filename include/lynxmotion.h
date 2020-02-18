@@ -4,7 +4,7 @@
 
 #include <Arduino.h>
 #include <Servo.h>
-
+#include "BasicLinearAlgebra.h"
 
 #define joint1ServoPin 3 
 #define joint2ServoPin 5
@@ -27,6 +27,9 @@ class LynxMotion
         // Forward kinematics
         void forwardKinematics(int *jointVec);
 
+        // Inverse Kinematics
+        void inverseKinematics(BLA::Matrix<3, 1> dFeF0, BLA::Matrix<3, 3> RFeF0);
+        
         // Joint space indices
        struct jointSpace
         {   int joint1; int joint2; int joint3;
@@ -34,14 +37,21 @@ class LynxMotion
         };
         const struct jointSpace jointIndices = {0, 1, 2, 3, 4, 5};
 
-        // Cartesian space indices
 
         // Deconstructor
         ~LynxMotion();
     
     private:
 
-
+        // Dimensions
+        const float m_L1 = 0.075;
+        const float m_L2 = 0.1463;
+        const float m_L3 = 0.1782;
+        const float m_L4 = 0.0286;
+        const float m_Le = 0.0398;
+        const float m_t3S = -1.0;
+        const float m_t2Phi1S = 1.0;
+        
         // Servo objects
         Servo m_servoJoint1; Servo m_servoJoint2; Servo m_servoJoint3;
         Servo m_servoJoint4; Servo m_servoJoint5; Servo m_servoGripper;
