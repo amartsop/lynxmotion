@@ -41,16 +41,32 @@ void setup()
 }
 
 
+
 void loop()
 {
     /******************** Forward Kinematics ******************/
 
+
     //Joystick
-    jointVec[robot.jointIndices.joint1] = 120;
-    jointVec[robot.jointIndices.gripper] = 153;
-    
+    jointVec[robot.jointIndices.joint1] = 0;
+    jointVec[robot.jointIndices.joint2] = 90;
+    jointVec[robot.jointIndices.joint3] = 30;
+    jointVec[robot.jointIndices.joint4] = 150;
+    jointVec[robot.jointIndices.joint5] = 90;
+
+
     // Forward Kinematics
     robot.forwardKinematics(jointVec);
+
+
+
+
+    delay(50);
+
+
+    // Serial.println(angle);
+
+    
 
 }
 
