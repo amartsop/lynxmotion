@@ -25,7 +25,7 @@
 #include "Arduino.h"
 #include "./include/lynxmotion.h"
 
-#define servoNum 6
+// #define servoNum 6
 
 // Robot instance
 LynxMotion robot;
@@ -49,10 +49,10 @@ void loop()
 
     //Joystick
     jointVec[robot.jointIndices.joint1] = 0;
-    jointVec[robot.jointIndices.joint2] = 90;
-    jointVec[robot.jointIndices.joint3] = 30;
-    jointVec[robot.jointIndices.joint4] = 150;
-    jointVec[robot.jointIndices.joint5] = 90;
+    jointVec[robot.jointIndices.joint2] = 80;
+    jointVec[robot.jointIndices.joint3] = 0;
+    jointVec[robot.jointIndices.joint4] = 0;
+    jointVec[robot.jointIndices.joint5] = 8000;
 
 
     // Forward Kinematics

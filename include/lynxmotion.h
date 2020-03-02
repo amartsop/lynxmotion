@@ -13,6 +13,7 @@
 #define joint5ServoPin 10
 #define gripperServoPin 11
 
+#define servoNum 6
 
 class LynxMotion
 {
@@ -34,17 +35,27 @@ class LynxMotion
         };
         const struct jointSpace jointIndices = {0, 1, 2, 3, 4, 5};
 
-        // Cartesian space indices
+        // Joint angles limits
+        const int lowerJointLimits[servoNum] = {-90, 0, -120, -120, -90, 0};
+        const int upperJointLimits[servoNum] = {90, 120, 0, 0, 90, 0};
 
         // Deconstructor
         ~LynxMotion();
     
     private:
 
-
         // Servo objects
         Servo m_servoJoint1; Servo m_servoJoint2; Servo m_servoJoint3;
         Servo m_servoJoint4; Servo m_servoJoint5; Servo m_servoGripper;
+
+        /*************** Joint to servo mapping **************/
+        // Servo limits 
+            const int m_lowerServoLimit = 0;
+            const int m_upperServoLimit = 180;
+
+        // Joint limits
+        const int m_lowerJointLimits[servoNum] = {-90, 0, -180, -180, -90, 0};
+        const int m_upperJointLimits[servoNum] = {90, 180, 0, 0, 90, 0};
 };
 
 
