@@ -15,17 +15,6 @@ void LynxMotion::init(void)
 }
 
 
-
-void LynxMotion::forwardKinematics(int *jointVec)
-{  
-    m_servoJoint1.write(jointVec[jointIndices.joint1]); 
-    m_servoJoint2.write(jointVec[jointIndices.joint2]);
-    m_servoJoint3.write(jointVec[jointIndices.joint3]); 
-    m_servoJoint4.write(jointVec[jointIndices.joint4]);
-    m_servoJoint5.write(jointVec[jointIndices.joint5]); 
-    m_servoGripper.write(jointVec[jointIndices.gripper]);
-}
-
 void LynxMotion::inverseKinematics(BLA::Matrix<3, 1> dFeF0, BLA::Matrix<3, 3> RFeF0)
 {
 
@@ -64,6 +53,17 @@ void LynxMotion::inverseKinematics(BLA::Matrix<3, 1> dFeF0, BLA::Matrix<3, 3> RF
     float theta5 = atan2(RFeF3(2, 0), RFeF3(2, 1));
 }
 
+
+
+void LynxMotion::forwardKinematics(int *jointVec)
+{  
+    m_servoJoint1.write(jointVec[jointIndices.joint1]); 
+    m_servoJoint2.write(jointVec[jointIndices.joint2]);
+    m_servoJoint3.write(jointVec[jointIndices.joint3]); 
+    m_servoJoint4.write(jointVec[jointIndices.joint4]);
+    m_servoJoint5.write(jointVec[jointIndices.joint5]); 
+    m_servoGripper.write(jointVec[jointIndices.gripper]);
+}
 
 LynxMotion::~LynxMotion()
 {
