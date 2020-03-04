@@ -50,8 +50,8 @@ class LynxMotion
 
         /*************** Joint to servo mapping **************/
         // Servo limits 
-            const int m_lowerServoLimit = 0;
-            const int m_upperServoLimit = 180;
+        const int m_lowerServoLimit = 0;
+        const int m_upperServoLimit = 180;
 
         // Joint limits
         const int m_lowerJointLimits[servoNum] = {-90, 0, -180, -180, -90, 0};
