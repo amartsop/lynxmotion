@@ -25,7 +25,7 @@ SignalProcessing<M>::SignalProcessing(){}
 
 template <class M>
 M SignalProcessing<M>::map(M x, M in_min, M in_max, M out_min, M out_max){
-    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    return ((M) ((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min));
 }
 
 template <class M>
